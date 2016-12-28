@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.android.testapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +19,10 @@
         </activity>
         <activity
             android:name=".ui.RxAndroid"
-            android:label="RxAndroid"></activity>
+            android:label="RxAndroid" />
         <activity android:name=".ui.GlideActivity"></activity>
+        <activity android:name=".ui.RxRegForm"></activity>
+        <activity android:name=".RetrofitGitHub.ui.GitHubActivity"></activity>
     </application>
 
 </manifest>

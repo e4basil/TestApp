@@ -1,12 +1,19 @@
 package com.test.android.testapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.test.android.testapp.R;
+import com.test.android.testapp.RetrofitGitHub.ui.GitHubActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -18,12 +25,16 @@ import rx.functions.Action1;
 public class RxAndroid extends AppCompatActivity {
 
     private static final String TAG = RxAndroid.class.getSimpleName();
+    private Unbinder unbinder;
+
+    @BindView(R.id.RxRegFormBtn)
+    Button RxRegFormButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_android);
-        Log.i(TAG, "onCreate: ");
+        unbinder = ButterKnife.bind(this);
 
     }
 
@@ -38,15 +49,30 @@ public class RxAndroid extends AppCompatActivity {
 //        RxMap();
 //        RxhashCode();
 //        RxhashCode2String();
-        RxhashCode2String2();
+//        RxhashCode2String2();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
+
+
+    public void RxRegForm(View view){
+        startActivity(new Intent(this,RxRegForm.class));
+    }
+
+    public void RxRetrofitGithub(View view){
+        startActivity(new Intent(this,GitHubActivity.class));
+    }
     private void RxhashCode2String2() {
         Observable.just("Hello, world!")
                 .map(s -> s + " -Basi")
                 .map(s -> s.hashCode())
                 .map(i -> Integer.toString(i))
-                .subscribe(s -> Log.d(TAG, "RxhashCode2String2: "+s));
+                .subscribe(s -> Log.d(TAG, "RxhashCode2String2: " + s));
     }
 
     private void RxhashCode2String() {
@@ -55,7 +81,7 @@ public class RxAndroid extends AppCompatActivity {
                 .map(integer ->
                         Integer.toString(integer))
                 .subscribe(s -> {
-                    Log.d(TAG, "RxhashCode2String: "+s);
+                    Log.d(TAG, "RxhashCode2String: " + s);
                 });
 
     }
@@ -65,7 +91,7 @@ public class RxAndroid extends AppCompatActivity {
         Observable.just("Hello Hai")
                 .map(String::hashCode)
                 .subscribe(integer -> {
-                    Log.d(TAG, "RxhashCode: "+integer);
+                    Log.d(TAG, "RxhashCode: " + integer);
                 });
     }
 
