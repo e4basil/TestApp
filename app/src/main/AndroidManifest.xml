@@ -20,9 +20,10 @@
         <activity
             android:name=".ui.RxAndroid"
             android:label="RxAndroid" />
-        <activity android:name=".ui.GlideActivity"></activity>
-        <activity android:name=".ui.RxRegForm"></activity>
-        <activity android:name=".RetrofitGitHub.ui.GitHubActivity"></activity>
+        <activity android:name=".ui.GlideActivity" />
+        <activity android:name=".ui.RxRegForm" />
+        <activity android:name=".RetrofitGitHub.ui.GitHubActivity" />
+        <activity android:name=".ui.CustomViews"></activity>
     </application>
 
 </manifest>

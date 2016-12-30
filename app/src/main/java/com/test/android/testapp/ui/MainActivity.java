@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void Glide(View view) {
         startActivity(new Intent(this, GlideActivity.class));
     }
+
+    public void CustomViews(View view) {
+        startActivity(new Intent(this, CustomViews.class));
+    }
+
     /**
      * Called when a view has been clicked.
      *
@@ -46,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
 
 
     @Override
