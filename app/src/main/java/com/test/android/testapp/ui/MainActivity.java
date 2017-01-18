@@ -30,13 +30,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, RxAndroid.class));
     }
 
-
     public void Glide(View view) {
         startActivity(new Intent(this, GlideActivity.class));
     }
 
     public void CustomViews(View view) {
         startActivity(new Intent(this, CustomViews.class));
+    }
+
+    public void FragmentBasics(View view) {
+        startActivity(new Intent(this, FragmentBasicsActivity.class));
     }
 
     /**
