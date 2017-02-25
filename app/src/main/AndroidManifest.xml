@@ -25,6 +25,7 @@
         <activity android:name=".RetrofitGitHub.ui.GitHubActivity" />
         <activity android:name=".ui.CustomViews" />
         <activity android:name=".ui.FragmentBasicsActivity"></activity>
+        <activity android:name=".ui.StripeActivity" />
     </application>
 
 </manifest>

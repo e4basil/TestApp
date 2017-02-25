@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, FragmentBasicsActivity.class));
     }
 
+    public void Stripe(View view){
+        startActivity(new Intent(this,StripeActivity.class));
+    }
     /**
      * Called when a view has been clicked.
      *
