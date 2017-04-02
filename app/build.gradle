@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
+//apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -38,7 +38,7 @@ dependencies {
 
 
     compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.2.0'
@@ -69,9 +69,9 @@ dependencies {
 //
 //    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 //
-    apt 'org.projectlombok:lombok:1.16.14'
+//    apt 'org.projectlombok:lombok:1.16.16'
 
-    provided 'org.projectlombok:lombok:1.16.14'
+    provided 'org.projectlombok:lombok:1.16.16'
 
 //    provided 'org.glassfish:javax.annotation:10.0-b28'
 }
