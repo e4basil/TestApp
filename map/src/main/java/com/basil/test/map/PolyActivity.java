@@ -63,7 +63,7 @@ public class PolyActivity extends AppCompatActivity implements OnMapReadyCallbac
                         new LatLng(-34.928, 138.599))
                 .clickable(true)
                 .fillColor(Color.MAGENTA)
-                
+
         );
     }
 
