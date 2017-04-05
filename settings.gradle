@@ -1,1 +1,1 @@
-include ':app', ':map', ':network'
+include ':app', ':map', ':network', ':onboarding'
