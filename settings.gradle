@@ -1,1 +1,1 @@
-include ':app', ':map', ':network', ':onboarding'
+include ':app', ':map', ':network', ':onboarding', ':rxandroid_1'
