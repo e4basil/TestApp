@@ -19,13 +19,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        justoperator();
-        fromoperator();
-
+//        justOperator();
+//        fromOperator();
+        mapOperator();
 
     }
 
-    private void justoperator() {
+    private void mapOperator() {
+        Observable<Integer> observable = Observable.from(new Integer[]{1, 2, 3, 4, 5, 6})
+                .map(integer -> {
+                    return integer * integer;
+                })
+                .skip(2)
+                .filter(integer -> {
+                    return integer % 2 == 0;
+                });
+
+        Observer<Integer> observer = new Observer<Integer>() {
+            @Override
+            public void onCompleted() {
+                Log.d(TAG, "onCompleted: ");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: ");
+            }
+
+            @Override
+            public void onNext(Integer o) {
+                Log.d(TAG, "onNext: " + o);
+            }
+        };
+
+
+        subscription = observable.subscribe(observer);
+    }
+
+    private void justOperator() {
         Observable<String> observable = Observable.just("hello");
 
 
@@ -50,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         subscription = observable.subscribe(myObserver);
     }
 
-    private void fromoperator() {
+    private void fromOperator() {
 
         Observable<Integer> integerObservable = Observable.from(new Integer[]{1, 2, 3, 4});
 
