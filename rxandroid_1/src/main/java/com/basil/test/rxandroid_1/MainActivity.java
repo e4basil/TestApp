@@ -6,7 +6,11 @@ import android.util.Log;
 
 import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,8 +25,39 @@ public class MainActivity extends AppCompatActivity {
 
 //        justOperator();
 //        fromOperator();
-        mapOperator();
+//        mapOperator();
+        network();
+    }
 
+    private void network() {
+        Observable<String> stringObservable = Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                try {
+                    String data = fetchFromGoogle("test");
+                    subscriber.onNext(data);
+                    subscriber.onCompleted();
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                }
+            }
+        });
+
+        stringObservable
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        Log.d(TAG, "call: " + s);
+                    }
+
+
+                });
+    }
+
+    private String fetchFromGoogle(String s) {
+        return s;
     }
 
     private void mapOperator() {
